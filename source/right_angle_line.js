@@ -11,9 +11,8 @@
 import * as THREE from '../submodules/three.js/build/three.module.js';
 
 import { HyLine } from './line.js';
+import { getAngleMarkPosition } from './angle_mark.js';
 import { scene } from './core.js';
-
-import { getAngleMarkPosition } from '../module/hyper_graphic.js';
 
 class HyRightAngleLine extends HyLine {
     constructor(position_a, position_b, position_c, size, over180) {
