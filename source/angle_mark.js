@@ -1,5 +1,3 @@
-import * as THREE from '../submodules/three.js/build/three.module.js';
-
 function getAngleMarkPosition(position_a, position_b, position_c, size, over180) {
 	var local_size = (size !== undefined) ? size : 0.3;
 	var position_a0 = position_a.clone();
