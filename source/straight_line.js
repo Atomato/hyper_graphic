@@ -72,4 +72,24 @@ class HyStraightLine extends HyLine {
 	}
 }
 
+/* xAxis, yAxis, zAxis
+ * 삼축을 생성하는 편의함수.
+ * min (Float) : 축 선분의 한 끝 점의 좌표.
+ * max (Float) : 축 선분의 다른 끝 점의 좌표.
+ */
+function xAxis(min, max) {
+	return new HyStraightLine(new THREE.Vector3(min, 0, 0), new THREE.Vector3(max, 0, 0));
+}
+
+function yAxis(min, max) {
+	return new HyStraightLine(new THREE.Vector3(0, min, 0), new THREE.Vector3(0, max, 0));
+}
+
+function zAxis(min, max) {
+	return new HyStraightLine(new THREE.Vector3(0, 0, min), new THREE.Vector3(0, 0, max));
+}
+
 export { HyStraightLine };
+export { xAxis };
+export { yAxis };
+export { zAxis };
