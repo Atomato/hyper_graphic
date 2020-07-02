@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			HYPER.init2(20, 20);
+
+			var a = new HYPER.HyPosition(0, 3);
+			var b = new HYPER.HyPosition(-1, 0);
+			var d = new HYPER.HyPosition(0, 0);
+			var c = new HYPER.HyPosition(1, 0);
+
+            new HYPER.HyStraightLine(a, b);
+            new HYPER.HyStraightLine(a, d);
+            new HYPER.HyStraightLine(a, c);
+            new HYPER.HyStraightLine(b, c);
+
+            var position_a_text = new HYPER.HyPosition(0, 3.15);
+            new HYPER.HyText('A', position_a_text);
+
+			var position_b_text = new HYPER.HyPosition(-1.15, 0);
+			new HYPER.HyText('B', position_b_text);
+
+            var position_c_text = new HYPER.HyPosition(1.15, 0);
+            new HYPER.HyText('C', position_c_text);
+
+            var position_d_text = new HYPER.HyPosition(0, -0.15);
+			new HYPER.HyText('D', position_d_text);
+
+            //각 BAD에 각 표시
+            var position_b = new HYPER.getAngleMarkPosition(b, a, d);
+            new HYPER.HyText('o', position_b, undefined, 0xff0000);
+
+            //각 CAD에 각 표시
+            var position_c = new HYPER.getAngleMarkPosition(c, a, d);
+            new HYPER.HyText('o', position_c, undefined, 0xff0000);
+
+            //각 ABD에 각 표시
+            var position_b = new HYPER.getAngleMarkPosition(a, b, d, 0.2);
+            new HYPER.HyText('x', position_b);
+
+            //각 ACD에 각 표시
+            var position_c = new HYPER.getAngleMarkPosition(a, c, d, 0.2);
+            new HYPER.HyText('x', position_c);
+
+		</script>
+
+	</body>
+</html>

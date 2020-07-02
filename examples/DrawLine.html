@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			HYPER.init2(20, 20);
+
+            var position_1_a = new HYPER.HyPosition(-1, 5);
+			var position_1_b = new HYPER.HyPosition(1, 5);
+			new HYPER.HyStraightLine(position_1_a, position_1_b);
+
+            //색깔
+            var position_2_a = new HYPER.HyPosition(-1, 3);
+            var position_2_b = new HYPER.HyPosition(1, 3);
+			new HYPER.HyStraightLine(position_2_a, position_2_b).setLineColor(0xff0000);
+
+            //굵기 : (지원되지 않음)
+            var position_3_a = new HYPER.HyPosition(-1, 1);
+            var position_3_b = new HYPER.HyPosition(1, 1);
+			new HYPER.HyStraightLine(position_3_a, position_3_b).setLineWidth(4);
+
+            //포인터 모양
+            var position_4_a = new HYPER.HyPosition(-1, -1);
+            var position_4_b = new HYPER.HyPosition(1, -1);
+			var arrow_line = new HYPER.HyStraightLine(position_4_a, position_4_b);
+			arrow_line.showStartPointArrowMark();
+            arrow_line.showEndPointArrowMark(0.15);
+
+            //점선
+            var position_5_a = new HYPER.HyPosition(-1, -3);
+            var position_5_b = new HYPER.HyPosition(1, -3);
+			new HYPER.HyStraightLine(position_5_a, position_5_b).setDashed();
+
+			//선분 마크 (beta)
+			//TODO 선분 마크가 선분을 따라 회전하는 기능 추가 예정
+            var position_6_a = new HYPER.HyPosition(-1, -5);
+            var position_6_b = new HYPER.HyPosition(1, -5);
+			var position_6_c = new HYPER.HyPosition();
+			new HYPER.HyStraightLine(position_6_a, position_6_b).getPositionAt(0.5, position_6_c);
+			new HYPER.HyText('>>', position_6_c);
+			
+		</script>
+
+	</body>
+</html>

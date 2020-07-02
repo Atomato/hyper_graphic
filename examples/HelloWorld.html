@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			HYPER.init2(20, 20);
+			new HYPER.xAxis(-10, 10).showEndPointArrowMark();
+			new HYPER.yAxis(-10, 10).showEndPointArrowMark();
+			new HYPER.HyText('Hello World');
+		</script>
+
+	</body>
+</html>

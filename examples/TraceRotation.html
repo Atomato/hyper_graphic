@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			var camera_position = new HYPER.HyPosition(0, 15, 15);
+            HYPER.init3(camera_position);
+			new HYPER.yAxis(-10, 10);
+
+			var points = [];
+
+            points.push(new HYPER.HyPosition(2, 2));
+            points.push(new HYPER.HyPosition(2, 6));
+            points.push(new HYPER.HyPosition(4, 6));
+            points.push(new HYPER.HyPosition(4, 2));
+
+			var shape = new HYPER.HyShape(points);
+			shape.setFaceColor(0xffffaa);
+
+			new HYPER.HyRevolution(shape);
+
+		</script>
+
+	</body>
+</html>

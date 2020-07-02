@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			HYPER.init2(20, 20);
+			new HYPER.xAxis(-10, 10).showEndPointArrowMark();
+			new HYPER.yAxis(-10, 10).showEndPointArrowMark();
+
+			//z 좌표를 음수로 줘서, 좌표축보다 뒤에 그리는 방법.
+			//var center = new HYPER.HyPosition(1, 1);
+			var center = new HYPER.HyPosition(1, 1, -1);
+
+			var circle = new HYPER.HyCircle(3, center);
+
+			circle.setFaceColor(0xffff00);
+			circle.setLineColor(0xff0000);
+
+		</script>
+
+	</body>
+</html>

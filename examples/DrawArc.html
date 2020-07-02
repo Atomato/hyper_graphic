@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			HYPER.init2(20, 20);
+
+            var position_1_a = new HYPER.HyPosition(-7, 0);
+            var position_1_b = new HYPER.HyPosition(-3, 0);
+
+			new HYPER.HyCurvedLine(position_1_a, position_1_b);
+
+			//점선
+            new HYPER.HyCurvedLine(position_1_b, position_1_a).setDashed();
+
+            var position_2_a = new HYPER.HyPosition(3, 0);
+			var position_2_b = new HYPER.HyPosition(7, 0);
+
+			//포인터
+			new HYPER.HyCurvedLine(position_2_a, position_2_b).showStartPointArrowMark();
+
+			//곡률
+			new HYPER.HyCurvedLine(position_2_b, position_2_a, 3);
+
+		</script>
+
+	</body>
+</html>

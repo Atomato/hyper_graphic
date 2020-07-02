@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hyper Graphic Drawing Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="../submodules/three.js/examples/main.css">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+
+		<script type="module">
+
+			import * as HYPER from '../module/hyper_graphic.js';
+
+			HYPER.init2(20, 20);
+
+			var o = new HYPER.HyPosition();
+			var a = new HYPER.HyPosition(2, 3);
+			var b = new HYPER.HyPosition(2, 0);
+
+            new HYPER.HyStraightLine(o, a);
+            new HYPER.HyStraightLine(a, b);
+            new HYPER.HyStraightLine(b, o);
+
+            var position_o_text = new HYPER.HyPosition(-0.15, -0.15);
+            new HYPER.HyText('O', position_o_text);
+
+			var position_a_text = new HYPER.HyPosition(2.15, 3.15);
+			new HYPER.HyText('A', position_a_text);
+
+            var position_b_text = new HYPER.HyPosition(2.15, -0.15);
+            new HYPER.HyText('B', position_b_text);
+
+			//각 AOB 그리기
+			new HYPER.HyCurvedAngleLine(a, o, b);
+
+			//각 OAB의 외각 그리기
+			new HYPER.HyCurvedAngleLine(o, a, b, undefined, true);
+
+			//각 ABO에 직각 그리기
+			var right_angle = new HYPER.HyRightAngleLine(a, b, o);
+
+			//직각에 색칠
+			right_angle.setLineColor(0xff0000);
+
+		</script>
+
+	</body>
+</html>
