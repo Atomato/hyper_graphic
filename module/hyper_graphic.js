@@ -4,8 +4,6 @@
  * 담당자 : AI3-2 방수빈 (soobean_bang@tmax.co.kr)
  */
 
-import * as THREE from '../submodules/three.js/build/three.module.js';
-
 import { init2 } from '../source/init.js';
 import { init3 } from '../source/init.js';
 import { xAxis } from '../source/straight_line.js';
